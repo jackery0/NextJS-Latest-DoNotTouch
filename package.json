@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-amplify": "^3.721.0",
+    "@aws-sdk/client-iam": "^3.723.0",
     "@aws-sdk/client-s3": "^3.721.0",
     "next": "latest",
     "react": "^18.2.0",
