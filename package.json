@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.721.0",
+    "child_process": "^1.0.2",
     "next": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
