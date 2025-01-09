@@ -12,3 +12,6 @@ frontend:
     baseDirectory: .next
     files:
       - '**/*'
+custom:
+  - echo "Copying scripts"
+  - cp scripts/*.js /opt/
